@@ -75,19 +75,35 @@ const HomePage = ({ contract, setUser }) => {
   };
 
   return (
-    <div style={{backgroundColor:'#52796F',width:'208.7vh',height:'100vh',display:'flex',justifyContent:'center',alignItems:'center'}}>
+    <div style={{backgroundColor:'#52796F',width:'208.7vh',height:'100vh',display:'flex',justifyContent:'center',alignItems:'center',color :'#fff'}}>
         {loader && <Loader src={gif} alt="loading..." />}
         <div style={{textAlign:'center'}}>
           <h1 style={{marginBottom:'-5px'}}>BIO HERITAGE</h1>
           <p>AN DECENTRALIZED PLATFORM FOR ENVIRONMENT ENGAGEMENT</p>
           <div style={{display:'flex',justifyContent:'center',alignItems:'center',gap:'20px'}}>
-          <button onClick={handleRegister}>Register</button>
+          <Connectbtn  onClick={handleRegister}>Connect to Wallet</Connectbtn>
         </div>
         </div>
         
       </div>
   );
 };
+
+const Connectbtn = styled.button`
+  background-color: #04AA6D;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+
+  &:hover {
+  background-color: black;
+  }
+
+`
 /*
 const HomeContainer = styled.div`
   display: flex;

@@ -49,6 +49,7 @@ const Menu = ({contract,user}) => {
           <Link to={'/recent-activity'}><MenuItem>Recent Activities</MenuItem></Link>
           <p style={{color:'red',textAlign:'center',cursor:'pointer'}} onClick={handleLogout} >LogOut</p>
         </MenuContainer>
+  
       )}
     </Div>
   );
