@@ -9,7 +9,7 @@ const HomePage = ({ contract, setUser }) => {
   const navigate = useNavigate();
   const [loader, setLoader] = useState(false);
 
-  const handleLogin = async () => {
+ /* const handleLogin = async () => {
     setLoader(true);
     if (typeof window.ethereum !== 'undefined') {
       try {
@@ -39,7 +39,7 @@ const HomePage = ({ contract, setUser }) => {
     } else {
       alert('Please Install Metamask to use this Application');
     }
-  };
+  };*/
 
   const handleRegister = async () => {
     setLoader(true);
@@ -75,25 +75,20 @@ const HomePage = ({ contract, setUser }) => {
   };
 
   return (
-    <HomeContainer>
-      {loader && <Loader src={gif} alt="loading..." />}
-      <Container>
-        <Title>BioHeritage Activity Hub</Title>
-        <Subtitle>
-          A decentralized platform for community engagement and environmental conservation.
-        </Subtitle>
-        <Description>
-          Our project aims to promote sustainable practices and support tribal communities by enabling users to participate in conservation activities and earn tokens as rewards. These tokens can be used in a marketplace to buy handmade products from tribal communities. Recieve 10 Tokens🪙 for each event you participate.
-        </Description>
-        <ButtonContainer>
-          <StyledButton onClick={handleRegister}>Register</StyledButton>
-          <StyledButton onClick={handleLogin}>Login</StyledButton>
-        </ButtonContainer>
-      </Container>
-    </HomeContainer>
+    <div style={{backgroundColor:'#52796F',width:'208.7vh',height:'100vh',display:'flex',justifyContent:'center',alignItems:'center'}}>
+        {loader && <Loader src={gif} alt="loading..." />}
+        <div style={{textAlign:'center'}}>
+          <h1 style={{marginBottom:'-5px'}}>BIO HERITAGE</h1>
+          <p>AN DECENTRALIZED PLATFORM FOR ENVIRONMENT ENGAGEMENT</p>
+          <div style={{display:'flex',justifyContent:'center',alignItems:'center',gap:'20px'}}>
+          <button onClick={handleRegister}>Register</button>
+        </div>
+        </div>
+        
+      </div>
   );
 };
-
+/*
 const HomeContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -155,7 +150,7 @@ const StyledButton = styled.button`
   background-color: #1b5e20;
   }
   `;
-
+*/
   const Loader = styled.img` position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1000; `;
 
   export default HomePage;
