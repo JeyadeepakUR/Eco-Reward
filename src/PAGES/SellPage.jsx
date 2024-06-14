@@ -5,12 +5,20 @@ import { abi } from '../abi';
 import { useNavigate } from 'react-router-dom';
 import Menu from '../COMPONENTS/Menu';
 import gif from '../ASSETS/loader.gif';
+import { create } from 'ipfs-http-client';
 
 const SellPage = ({ contract, user }) => {
   const [productName, setProductName] = useState('');
   const [priceInTokens, setPriceInTokens] = useState('');
+  const [file, setFile] = useState(null);
   const navigate = useNavigate();
   const [loader, setLoader] = useState(false);
+
+  const ipfs = create({host: 'ipfs.infura.io', port:5001, protocol: 'https'});
+
+  const handleFileUpload = async(event) => {
+    setFile(event.target.files[0]);
+  }
 
   const handleSell = async (event) => {
     setLoader(true);
@@ -20,6 +28,7 @@ const SellPage = ({ contract, user }) => {
       const web3 = new Web3(window.ethereum);
       const instance = new web3.eth.Contract(abi, contract);
       await instance.methods.listProduct(productName, priceInTokens).send({ from: user });
+      const addedFile = await ipfs.add(file);
       setLoader(false);
       navigate('/market');
     } catch (error) {

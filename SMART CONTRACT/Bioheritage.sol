@@ -28,9 +28,11 @@ contract BioHeritageToken is ERC20, Ownable, ERC20Permit {
 
     struct Product {
         address seller;
+        string ipfshash;
         string name;
         uint256 priceInTokens;
         bool sold;
+        uint256 quantity;
     }
 
     event EventCreated(uint256 eventId, address organizer, string name, string location, string mobileNumber, uint256 startTime, uint256 endTime);
@@ -114,7 +116,7 @@ contract BioHeritageToken is ERC20, Ownable, ERC20Permit {
         myEvent.isPresent[participant] = true;
     }
 
-    function listProduct(string memory name, uint256 priceInTokens) external onlyRegistered {
+    function listProduct(string memory name, uint256 priceInTokens, string memory _ipfshash) external onlyRegistered {
         require(priceInTokens > 0, "Invalid price");
 
         productCount++;
@@ -123,6 +125,7 @@ contract BioHeritageToken is ERC20, Ownable, ERC20Permit {
         newProduct.name = name;
         newProduct.priceInTokens = priceInTokens;
         newProduct.sold = false;
+        newProduct.ipfshash = _ipfshash;
 
         emit ProductListed(productCount, msg.sender, name, priceInTokens);
     }
@@ -136,5 +139,21 @@ contract BioHeritageToken is ERC20, Ownable, ERC20Permit {
         myProduct.sold = true;
 
         emit ProductBought(productId, msg.sender, myProduct.priceInTokens);
+    }
+
+    function getProduct(uint256 _productId) public view returns (Product memory) {
+        return marketplace[_productId];
+    }
+
+    function deleteProduct(uint256 _productId) public {
+        Product storage product = marketplace[_productId];
+        require(product.quantity == 0, "Product quantity is not zero");
+
+        product.seller = address(0);
+        product.name = "";
+        product.priceInTokens = 0;
+        product.ipfshash = "";
+        product.sold = false;
+        product.quantity = 0;
     }
 }
