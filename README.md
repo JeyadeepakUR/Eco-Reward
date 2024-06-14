@@ -1,6 +1,6 @@
-### README for BioHeritage Activity Hub
+### README for Eco-Reward Tokens
 
-# BioHeritage Activity Hub
+# Eco-Rewards
 
 ## Introduction
 BioHeritage Activity Hub is a decentralized application (DApp) built on the Ethereum blockchain aimed at promoting and supporting bioheritage conservation activities. The platform allows users to organize and participate in eco-friendly events, earn tokens for their contributions, and spend these tokens on a marketplace featuring products made by local artisans.
@@ -20,8 +20,8 @@ To run the project locally, follow these steps:
 
 1. **Clone the repository:**
    ```sh
-   git clone https://github.com/yourusername/BioHeritageActivityHub.git
-   cd BioHeritageActivityHub
+   git clone https://github.com/yourusername/Eco-Reward.git
+   cd Eco-Reward
    ```
 
 2. **Install dependencies:**
@@ -51,7 +51,7 @@ To run the project locally, follow these steps:
    Use earned tokens to buy products in the marketplace or list your own products for sale.
 
 ## Hosted Links
-- **Application:** [Hosted Link](https://hack4bioheritage-hackathon-activity-hub.onrender.com/)
+- **Application:** [Hosted Link](https://bio-heritage.vercel.app/)
 - **Sepolia Smart Contract:** [Etherscan Link](https://sepolia.etherscan.io/address/0xc1b3d1405dcddbd3d035f67058d13bc79ac51e20)
 
 ## Smart Contract
@@ -66,10 +66,5 @@ Contributions are welcome! Please fork the repository and submit pull requests f
 ## License
 This project is licensed under the MIT License. See the LICENSE file for details.
 
-## Contact
-For any queries or support, please contact:
-- **Name:** Aalan Sason Singarayan A
-- **Email:** aalansasonsingarayan@gmail.com
-- **GitHub:** [aalan294](https://github.com/aalan294/)
 
 Thank you for using BioHeritage Activity Hub! Let's make a positive impact on our environment together.
